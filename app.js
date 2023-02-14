@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 });
 
 //đinh nghĩa xử lý lỗi middleware sau khi app.use() và routes calls
-app.use((err, req, res, next) => {
+app.use((error, req, res, next) => {
   return res.status(error.statusCode || 500).json({
     message: error.message || "Internal server Error",
   });
