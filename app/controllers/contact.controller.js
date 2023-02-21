@@ -97,7 +97,7 @@ class contactController {
       });
     } catch (error) {
       return next(
-        new ApiError(500, `Error retrieving contact with id=${req.params.id}`)
+        new ApiError(500, `An error occurred while removing all contacts`)
       );
     }
   };
