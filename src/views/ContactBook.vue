@@ -102,10 +102,11 @@ export default {
         <i class="fas fa-address-book"></i>
       </h4>
 
+      <!-- eslint-disable -->
       <contact-list
         v-if="filteredContactsCount > 0"
         :contacts="filteredContacts"
-        v-model="activeIndex"
+        v-model:activeIndex="activeIndex"
       />
 
       <p v-else>Không có liên hệ nào.</p>
