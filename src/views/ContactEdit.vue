@@ -1,6 +1,8 @@
 <script>
 import ContactForm from "@/components/ContactForm.vue";
 import ContactService from "@/services/contact.service";
+import { toast } from "vue3-toastify";
+
 export default {
   components: {
     ContactForm,
@@ -37,7 +39,8 @@ export default {
     async updateContact(data) {
       try {
         await ContactService.update(this.contact._id, data);
-        this.message = "Liên hệ được cập nhật thành công.";
+        toast.success("Liên hệ được cập nhật thành công.");
+        // this.message = "Liên hệ được cập nhật thành công.";
         setTimeout(this.$router.push("/"), 2000);
       } catch (error) {
         console.log(error);

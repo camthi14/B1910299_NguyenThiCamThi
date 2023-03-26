@@ -1,6 +1,8 @@
 <script>
 import ContactForm from "@/components/ContactForm.vue";
 import ContactService from "@/services/contact.service";
+import { toast } from "vue3-toastify";
+
 export default {
   components: {
     ContactForm,
@@ -22,7 +24,8 @@ export default {
     async createContact(data) {
       try {
         await ContactService.create(data);
-        this.message = "Liên hệ được thêm thành công.";
+        toast.success("Liên hệ được thêm thành công.");
+        // this.message = "Liên hệ được thêm thành công.";
         setTimeout(this.$router.push("/"), 10000);
       } catch (error) {
         console.log(error);

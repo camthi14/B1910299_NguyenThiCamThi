@@ -16,16 +16,21 @@ export default {
     const contactFormSchema = yup.object().shape({
       name: yup
         .string()
-        .required("Tên phải có giá trị.")
+        .required("Trường này không được để trống!")
         .min(2, "Tên phải ít nhất 2 ký tự.")
         .max(50, "Tên có nhiều nhất 50 ký tự."),
       email: yup
         .string()
+        .required("Trường này không được để trống!")
         .email("E-mail không đúng.")
         .max(50, "E-mail tối đa 50 ký tự."),
-      address: yup.string().max(100, "Địa chỉ tối đa 100 ký tự."),
+      address: yup
+        .string()
+        .required("Trường này không được để trống!")
+        .max(100, "Địa chỉ tối đa 100 ký tự."),
       phone: yup
         .string()
+        .required("Trường này không được để trống!")
         .matches(
           /((09|03|07|08|05)+([0-9]{8})\b)/g,
           "Số điện thoại không hợp lệ."
